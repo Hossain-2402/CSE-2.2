@@ -8,7 +8,7 @@ MARKS DISTB
 
 
 
-
+Settings > Compiler > Linker Settings > Add > OK
 
 
 
