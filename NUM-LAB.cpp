@@ -28,6 +28,7 @@ void findAns(double a, double b){
             else cout << "Root Found" << endl;
 
             current = (a+b)/2.00;
+            // double current = a - ((f(a)*(b-a))/(f(b)-f(a))); // False position
         }
     }
 }
@@ -36,9 +37,3 @@ int main(){
 
     findAns(-4,-2.5);
 }
-
-
-
-
-
-
