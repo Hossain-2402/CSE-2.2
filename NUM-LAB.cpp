@@ -15,6 +15,7 @@ void findAns(double a, double b){
     }
     else{
         double current = (a+b)/2.00;
+        // double current = a - ((f(a)*(b-a))/(f(b)-f(a))); // False position
         while(abs(current - prev) > 0.0002){
             prev = current;
             cout << current << endl ;
