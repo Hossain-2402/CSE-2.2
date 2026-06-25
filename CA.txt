@@ -36,11 +36,11 @@ MAIN PROC
 ;   MOV DL, BL
 ;   INT 21H
                      
-    MOV AX, @DATA
-    MOV DS, AX                 
-    MOV AH, 9
-    LEA DX, MSG
-    INT 21H
+;    MOV AX, @DATA
+;    MOV DS, AX                 
+;    MOV AH, 9
+;    LEA DX, MSG
+;    INT 21H
     
     
     
