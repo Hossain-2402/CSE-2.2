@@ -1,0 +1,22 @@
+// hoisting 
+
+
+// global scope
+// block scope
+// functoin scope
+
+//reference type
+//primitive type
+
+
+
+// spread operator
+// template literal( tilt sign)
+
+
+// clouser function
+
+
+// async js
+
+// setTimeOut
