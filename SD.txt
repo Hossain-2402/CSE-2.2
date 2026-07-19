@@ -20,3 +20,7 @@
 // async js
 
 // setTimeOut
+
+
+
+I have been working on a mern stack based website project that is about finance tracking. Now I have come to know that my project has to address a social issue and solve that, So I want to stay in this project and not change the idea but integrate such features so that "Social problem solve" becomes the central goal of the website and other things also stay. Give me 5 ideas about it
