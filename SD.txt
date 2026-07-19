@@ -24,3 +24,42 @@
 
 
 I have been working on a mern stack based website project that is about finance tracking. Now I have come to know that my project has to address a social issue and solve that, So I want to stay in this project and not change the idea but integrate such features so that "Social problem solve" becomes the central goal of the website and other things also stay. Give me 5 ideas about it
+
+
+
+
+Goal:
+    Post-Disaster / Crisis Financial Recovery Planning
+      Social problem: After floods, cyclones, or economic shocks (common in Bangladesh), families lose track of finances entirely and struggle to rebuild, with no structured way to plan recovery.
+      Primary goal the app serves: Help affected individuals reconstruct a financial picture from scratch and plan a path back to stability.
+      How the app is built around this: Add Income/Expense becomes a recovery-tracking tool — users log remaining resources, essential vs. non-essential spending, and aid received. The dashboard visualizes "recovery progress" (e.g., how close they are to pre-crisis           income levels) rather than generic spending charts. This is a fundamentally different lens than a normal budgeting app.
+
+TECH STACK:
+    1. react js
+    2. MERN stack
+    3. No Tailwind CSS. Use only plain CSS.
+
+REQUIREMENTS:
+1. Third-Party Keys (if needed, abvoid if not needed)
+    At the very beginning, list all third-party API keys or service keys required (if any).
+    Explain how to obtain them, and where in the codebase the keys must be placed.
+2. Environment Variables
+    Provide all .env variables first, before any coding instructions.
+    Format example:
+    REACT_PUBLIC_EXAMPLE_KEY="xxxx"
+3. Installation Commands
+    List all npm install commands required before coding.
+
+
+[MUST FOLLOW] NOTES :
+                  1. Try to keep less features
+                  2. Use few css 
+                  3. DO NOT OVERBUILD
+                  4. Maintain the following folders : pages (homepage, signinpage, dashboard etc...), styles(css files for each page)
+                  5. At first, shortly describe what you are going to build and give me the plan first. Once I approve, start coding.
+                  6. Give me the full project file in a zip file
+                  7. Do not use advanced things, make this project simple
+                  8. Use css "animation, @keyframes animation" to integrate some animations on the ui.
+                  9. Make the UI of the website responsive for both desktop and mobile 
+                  10. Use BrowserRouter for routing
+                  11. Make the code for the backend simple and clean 
