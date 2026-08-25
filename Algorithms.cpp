@@ -324,3 +324,124 @@ int main(){
     return 0;
 }
 
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+  //00724105101017
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+vector<vector<int>> solve(vector<vector<int>> times){
+
+
+    vector<vector<int>> res;
+
+
+    sort(times.begin(), times.end(), [](auto x, auto y){
+            if(x[1] == y[1]){
+                int gap1 = x[1]-x[0];
+                int gap2 = y[1]-y[0];
+
+                int pr1 = x[2];
+                int pr2 = y[2];
+                if(gap1 < gap2){
+                    return x[1];
+                }
+                else if(gap1 > gap2){
+                    return y[1];
+                }
+                else{
+                    if(pr1 > pr2){
+                        return x[2];
+                    }
+                    return y[2];
+                }
+            }
+            if(x[1] < y[1]){
+                return x[1];
+            }
+            return y[1];
+         });
+
+
+    cout << endl;
+
+    for(auto time: times){
+            cout << time[0] << " " << time[1] << " " << time[2] << endl;
+    }
+
+    cout << endl;
+
+
+
+    int last_end = -1;
+
+    for(auto time: times){
+        if(time[0] > last_end){
+            last_end = time[1];
+            res.push_back(time);
+        }
+    }
+
+
+    return res;
+
+
+}
+
+
+int main(){
+
+    vector<vector<int>> times = {
+        {1,2,3},
+        {1,3,5},
+        {2,3,4},
+        {3,4,2},
+        {3,5,6},
+        {4,5,7},
+        {5,6,8}
+    };
+
+
+    vector<string> course_codes = {
+        "CSE101",
+        "CSE105",
+        "CSE110",
+        "CSE115",
+        "CSE120",
+        "CSE125",
+        "CSE130",
+    };
+
+    map<vector<int>, string> mp;
+
+
+    int i = 0;
+    for(auto time: times){
+        mp[time] = course_codes[i];
+        i++;
+    }
+
+
+    vector<vector<int>> res = solve(times);
+    for(auto a: res){
+        cout << mp[a] << "->";
+    }
+
+
+
+
+}
+
