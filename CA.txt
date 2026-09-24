@@ -52,3 +52,58 @@ MAIN ENDP
 MOV AH, 4CH
 INT 21H
 END MAIN ; to mean programme is done 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.MODEL SMALL
+.STACK 100H
+.DATA
+
+    PATTERNS DB 7EH, 09H, 09H, 09H, 7EH     
+     
+     
+     
+     
+.CODE
+MAIN PROC
+    
+    
+    MOV AX, @DATA
+    MOV DS, AX
+    
+    MOV CX, 5
+    
+
+    LEA SI, PATTERNS
+    MOV DX, 2000H
+    
+
+WRITE_LOOP:
+    
+    MOV AL, [SI]
+    OUT DX, AL
+    INC SI
+    INC DX
+    
+    LOOP WRITE_LOOP
+    
+    HLT
+    
+MAIN ENDP
+END MAIN
+
+
+
+
