@@ -107,108 +107,102 @@ END MAIN
 
 
 
-; 00724105101017
-
 .MODEL SMALL
 .STACK 100H
-.DATA 
-    P1 DB 1000100B, 1000010B, 1111111B, 1000000B, 1000000B
-    PA DB 1111110B, 0001001B, 0001001B, 0001001B, 1111110B
-    P7 DB 0000001B, 1110001B, 0001001B, 0000101B, 0000011B
-    PN DB 1111111B, 0000110B, 0011000B, 1100000B, 1111111B
+.DATA
+
+    N DB ?
+    M DB ? 
     
-    PATTERNS DW P1, PA, P7, PN
-              
-    K DB ?    
-    PORT DW 2014H
-    TARGET_PORT DW 2000H       
+    ONE DB 1000100B, 1000010B, 1111111B, 1000000B, 1000000B 
+    FOUR DB 0001100B, 0001010B, 1111101B, 0000000B, 0000000B 
+    
+    PORT DW 2000H
+    
+    PATTERN DB 0000000B, 0000001B, 0000011B, 0000111B, 0001111B, 0011111B, 0111111B,
 
 .CODE
 MAIN PROC
     MOV AX, @DATA
     MOV DS, AX
-                
-                
-                
-    MOV BX, 0
-    MOV BX, -1D                
     
-    REPEAT: 
-        MOV CX, 20
-        
-        LEA SI, P1
-        MOV DX, PORT
-        
-        WRITE:
-            MOV AL, [SI]
-            OUT DX, AL
-            
-            INC SI
-            
-            INC DX
-                              
-                        
-            LOOP WRITE
-        
-        
-        MOV AL, 00H
-        OUT DX, AL 
-                    
-                           
-        ADD PORT, BX 
-        
-                
-        CMP BX, 1
-        JNE CONTINUE
-        
-        MOV DX, PORT
-        DEC DX
-        MOV AL, 00H
-        OUT DX, AL
-        
-        CONTINUE:
-        
-        ;CALL DELAY               
-                     
-                     
-        MOV CX, TARGET_PORT                    
-        CMP PORT, CX
-        JE CHANGE_DIR
-        JMP REPEAT  
-        
-        
-CHANGE_DIR:        
-        CMP BX, -1D
-        JE GO_RIGHT
-        JMP GO_LEFT
-        
+          
+    MOV AH, 1
+    INT 21H    
+    SUB AL, 30H
+    MOV N, AL
 
-GO_RIGHT:
-    MOV BX, 1D
-    MOV TARGET_PORT, 2014H
-    JMP REPEAT
-        
-        
+
+    
+    XOR AX, AX
+    MOV AH, 1
+    INT 21H   
+    SUB AL, 30H
+    MOV M, AL 
+    
+                                                   
+                
+ 
+    L:              
+         
+        LEA SI, PATTERN
+        XOR DX, DX
+        MOV DX, PORT
+ 
+ 
+        XOR BX, BX
+        MOV BL, N           
+        ADD SI, BX                           
+        MOV AL, [SI]
+        OUT DX, AL  
+                     
+        CALL DELAY                    
+                     
+        MOV AL, 0000000B
+        OUT DX, AL
               
+
+        XOR BX, BX 
+        MOV BL, M 
+        ADD PORT, BX
+        
+        CMP PORT, 2005H
+        JE GO_LEFT
+
+
+CNG_DIR:
+    CMP M, 0
+    JG GO_LEFT
+    JMP GO_RIGHT
+ 
 GO_LEFT:
-    MOV BX, -1D
-    MOV TARGET_PORT, 2000H
-    JMP REPEAT
-        
-          
-          
-          
+    MOV BL, M
+    MOV BL, -M
+    MOV M, BL
+    
+    JMP L 
+    
+         
+GO_RIGHT:
+    MOV BX, 0
+    MOV BL, -M
+    MOV M, BL
+    
+    JMP L
+
+
+MAIN ENDP       
+
 DELAY PROC
-    MOV K, 0
-    L:
-        INC K
-        CMP K, 1
-        JLE L
-        
+    MOV CX, 5
+    L1:
+        LOOP L1  
         RET
-    
-DELAY ENDP          
-    
+DELAY ENDP       
+
+
+
+END MAIN
     
 END MAIN
 MAIN ENDP                   
